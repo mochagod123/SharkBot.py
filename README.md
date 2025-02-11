@@ -1,2 +1,2 @@
 # SharkBot.py
-SharkBotのPython用コードです
+SharkBotAPIのPython用コードです

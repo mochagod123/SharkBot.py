@@ -1,9 +1,6 @@
 import shark
 
-auth = shark.Auth("")
+doc = shark.Dpy("Channel")
 
-print(auth.token)
-print(auth.guild_name)
-print(auth.guild_id)
-print(auth.author_name)
-print(auth.author_id)
+for f in doc.find_all:
+    print(f)

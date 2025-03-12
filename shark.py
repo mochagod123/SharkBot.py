@@ -9,6 +9,11 @@ class GetData:
     def auth_token(token: str):
         response = requests.post(base_url + "/auth", json={"token": token})
         return response.json()
+    
+    @staticmethod
+    def dpy_document(word: str):
+        response = requests.post(base_url + "/dpy", json={"word": word})
+        return response.json()
 
 class Auth:
     def __init__(self, token: str):
@@ -33,3 +38,15 @@ class Auth:
     @property
     def token(self):
         return self.data.get("Token", None)
+    
+class Dpy:
+    def __init__(self, word: str):
+        self.data = GetData().dpy_document(word)
+
+    @property
+    def find(self):
+        return self.data.get("Data", None)[0]
+    
+    @property
+    def find_all(self):
+        return self.data.get("Data", None)
